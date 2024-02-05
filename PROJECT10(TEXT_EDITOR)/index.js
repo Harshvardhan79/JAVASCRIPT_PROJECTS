@@ -15,32 +15,57 @@ const Capitalizebtn = document.querySelector('.btncapitalize');
 const Italicbtn = document.querySelector('.btnitalic');
 const underbtn = document.querySelector('.btnunderline');
 
-let convertWord = inputBox.value;
-
 Boldbtn.addEventListener('click', () => {
-  
-  output.innerHTML = `<b>${convertWord}</b>`;
+  if (output.innerHTML != 'Output') {
+    let newOuter = output.innerHTML;
+    output.innerHTML = `<b>${newOuter}</b>`;
+  } else {
+    output.innerHTML = `<b>${inputBox.value}</b>`;
+  }
 });
 
 Italicbtn.addEventListener('click', () => {
-  output.innerHTML = `<i>${inputBox.value}</i>`;
+  if (output.innerHTML != 'Output') {
+    let newOuter = output.innerHTML;
+    output.innerHTML = `<i>${newOuter}</i>`;
+  } else {
+    output.innerHTML = `<i>${inputBox.value}</i>`;
+  }
 });
 
 underbtn.addEventListener('click', () => {
-  output.innerHTML = `<u>${inputBox.value}</u>`;
+  if (output.innerHTML != 'Output') {
+    let newOuter = output.innerHTML;
+    output.innerHTML = `<u>${newOuter}</u>`;
+  } else {
+    output.innerHTML = `<u>${inputBox.value}</u>`;
+  }
 });
 
 Upperbtn.addEventListener('click', () => {
-  output.innerHTML = `${inputBox.value.toUpperCase()}`;
+  console.log(output.textContent);
+  if (output.textContent == 'Output') {
+    output.innerHTML = `${inputBox.value.toUpperCase()}`;
+  } else {
+  output.innerHTML = output.innerHTML.replace(
+    output.textContent,
+    output.textContent.toUpperCase()
+  );
+  }
 });
 
 Lowerbtn.addEventListener('click', () => {
-  output.innerHTML = `${inputBox.value.toLowerCase()}`;
+  if (output.textContent == 'Output') {
+    output.innerHTML = `${inputBox.value.toLowerCase()}`;
+  } else {
+    output.innerHTML = output.innerHTML.replace(
+      output.textContent,
+      output.textContent.toLowerCase()
+    );
+  }
 });
 
 Capitalizebtn.addEventListener('click', () => {
   let ans = inputBox.value[0].toUpperCase() + inputBox.value.substring(1);
   output.innerHTML = `${ans}`;
 });
-
-
